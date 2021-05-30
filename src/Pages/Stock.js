@@ -4,7 +4,7 @@ import { useState } from 'react'
 import '../CSS/Stock.css'
 // import Plot from 'react-plotly.js';
 // import AnyChart from '../../node_modules/anychart-react/dist/anychart-react.min'
-import anychart from 'anychart'
+// import anychart from 'anychart'
 
 
 const Stock = () => {
@@ -109,30 +109,30 @@ const Stock = () => {
     fetchInitialStock();
   }
 
-  if(datatd !== []){
-    var table, mapping, chart;
-    table = anychart.data.table();
-    table.addData(datatd);
+  // if(datatd !== []){
+  //   var table, mapping, chart;
+  //   table = anychart.data.table();
+  //   table.addData(datatd);
   
-    // mapping the data
-    mapping = table.mapAs();
-    mapping.addField('open', 1, 'first');
-    mapping.addField('high', 2, 'max');
-    mapping.addField('low', 3, 'min');
-    mapping.addField('close', 4, 'last');
+  //   // mapping the data
+  //   mapping = table.mapAs();
+  //   mapping.addField('open', 1, 'first');
+  //   mapping.addField('high', 2, 'max');
+  //   mapping.addField('low', 3, 'min');
+  //   mapping.addField('close', 4, 'last');
   
-    // defining the chart type
-    chart = anychart.stock();
+  //   // defining the chart type
+  //   chart = anychart.stock();
       
-    // set the series type
-    chart.plot(0).candlestick(mapping).name(datao.name);
+  //   // set the series type
+  //   chart.plot(0).candlestick(mapping).name(datao.name);
       
-    // setting the chart title
-    chart.title('Stock Chart (5min)');
-  }
-  else{
-    fetchStock();
-  }
+  //   // setting the chart title
+  //   chart.title('Stock Chart (5min)');
+  // }
+  // else{
+  //   fetchStock();
+  // }
 
 
 
