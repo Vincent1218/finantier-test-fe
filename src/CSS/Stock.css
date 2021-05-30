@@ -6,6 +6,21 @@ html {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
+.alertdne{
+  width: 40rem;
+  position: fixed !important;
+  margin-left: auto ;
+  margin-right: auto ;
+  left: 0 ; 
+  right: 0 ; 
+  text-align: center !important;
+  z-index: 1;
+}
+
+.searchbar{
+  z-index: 0;
+} 
+
 .container{
   margin-top: 2rem;
 }

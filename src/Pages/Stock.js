@@ -157,12 +157,12 @@ const Stock = () => {
 
   return (
     <div className = "stockpage">
-      <Alert show={showF} className= "swalert" variant="danger" onClose={() => setShowF(false)} dismissible>
+      <Alert show={showF} className= "alertdne" variant="danger" onClose={() => setShowF(false)} dismissible>
         <Alert.Heading className = "alertHeading"> Symbol does not exist! </Alert.Heading>
       </Alert>
       <div className = "container">
           <div className="input-group mb-3">
-            <input type="text" className="form-control" value={stockSymbol} placeholder="Company's symbol" aria-label="Company's symbol" aria-describedby="button-addon2"
+            <input type="text" className="searchbar form-control" value={stockSymbol} placeholder="Company's symbol" aria-label="Company's symbol" aria-describedby="button-addon2"
             onChange={(e) => setStockSymbol( e.target.value )}></input>
             <div className="input-group-append">
               <button className="btn btn-primary" type="button" id="button-addon2" onClick={addStock}>Search</button>
