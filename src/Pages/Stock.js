@@ -2,7 +2,7 @@ import React from 'react'
 import Alert from 'react-bootstrap/Alert';
 import { useState, useEffect, useRef } from 'react'
 import '../CSS/Stock.css'
-import Plot from 'react-plotly.js';
+// import Plot from 'react-plotly.js';
 
 
 
@@ -116,15 +116,12 @@ const Stock = () => {
       xaxis: {
         autorange: true, 
         domain: [0, 1], 
-        // range: ['2017-01-03 12:00', '2017-02-15 12:00'], 
-        // rangeslider: {range: ['2017-01-03 12:00', '2017-02-15 12:00']}, 
         title: 'Date', 
         type: 'date'
       }, 
       yaxis: {
         autorange: true, 
         domain: [0, 1], 
-        // range: [114.609999778, 137.410004222], 
         type: 'linear'
       },
       width: graphWidth ,
@@ -192,14 +189,14 @@ const Stock = () => {
             </div>
           </div>
           <div ref={ref} className = {`graph  ${fetchedGraph? "" : "graphh"}`}>
-            {
+            {/* {
               fetchedGraph ? 
                 <Plot
                 data={stockData}
                 layout={stockLayout}
               />
               : ""
-            }
+            } */}
           </div>
           <div className = "row details">
 
