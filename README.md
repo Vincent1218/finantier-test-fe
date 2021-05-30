@@ -25,7 +25,7 @@
 
 ### Developing
 1. Fetch API.
-2. Choose both [TwelveData](https://twelvedata.com/) and [Alpha Vantage](https://www.alphavantage.co/) as [Alpha Vantage](https://www.alphavantage.co/) do not provide `real-time data` and TwelveData](https://twelvedata.com/) do not provide `MarketCap`.
+2. Choose both [TwelveData](https://twelvedata.com/) and [Alpha Vantage](https://www.alphavantage.co/) as [Alpha Vantage](https://www.alphavantage.co/) do not provide `real-time data` and [TwelveData](https://twelvedata.com/) do not provide `MarketCap`.
 3. Reconstruct data to suit the format of the graphing tool parameters.
 4. Displaying required data.
 5. Set timer to fetch data every `5 minutes` due to limited total amount of requests per day.
@@ -47,6 +47,6 @@
 
 <br />
 
-## Link to website: http://178.128.57.31/ 
+## Link to website: [Click Me!](http://178.128.57.31/)
 	
 
