@@ -16,11 +16,7 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
-  "engines" : { 
-    "node" : "14.15.4",
-    "npm" : "6.1.10",
-    "yarn" : "1.22.10"
-  },
+
   "engineStrict" : true ,
   "scripts": {
     "start": "react-scripts --max_old_space_size=512 start",
