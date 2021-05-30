@@ -2,7 +2,7 @@ import React from 'react'
 import Alert from 'react-bootstrap/Alert';
 import { useState, useEffect, useRef } from 'react'
 import '../CSS/Stock.css'
-// import Plot from 'react-plotly.js';
+import Plot from 'react-plotly.js';
 
 
 
@@ -189,14 +189,14 @@ const Stock = () => {
             </div>
           </div>
           <div ref={ref} className = {`graph  ${fetchedGraph? "" : "graphh"}`}>
-            {/* {
+            {
               fetchedGraph ? 
                 <Plot
                 data={stockData}
                 layout={stockLayout}
               />
               : ""
-            } */}
+            }
           </div>
           <div className = "row details">
 
