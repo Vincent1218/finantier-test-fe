@@ -1,4 +1,4 @@
-# Frontend Software Engineer - Coding Challenge 
+# Finantier Frontend Software Engineer - Coding Challenge 
 
 ## By: Chai Wen Xuan
 
@@ -26,7 +26,7 @@
 ### Developing
 1. Fetch API.
 2. Choose both [TwelveData](https://twelvedata.com/) and [Alpha Vantage](https://www.alphavantage.co/) as [Alpha Vantage](https://www.alphavantage.co/) do not provide `real-time data` and TwelveData](https://twelvedata.com/) do not provide `MarketCap`.
-3. Reconstruct data to suit the format of the graphing tool.
+3. Reconstruct data to suit the format of the graphing tool parameters.
 4. Displaying required data.
 5. Set timer to fetch data every `5 minutes` due to limited total amount of requests per day.
 6. *Changed the required `bid` & `ask` to `high` & `low` as API chosen is not from a broker.
@@ -36,7 +36,7 @@
 ### Deploying
 1. Tried [Heroku](https://www.heroku.com), which is a free deploying platform.
 2. Faced `Error => (Javascript Heap Out of Memory)`
-3. Choosing [Digital Ocean](https://www.digitalocean.com/) as server memory is more customisable.
+3. Choosing [Digital Ocean](https://www.digitalocean.com/) as server memory is more customisable and cheaper.
 4. Build app.
 5. Deploy.
 
