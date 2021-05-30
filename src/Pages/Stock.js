@@ -145,6 +145,7 @@ const Stock = () => {
     // console.log(stockData);
     setFetchedGraph(true);  
     // setTimeout(fetchStock, 100);
+    setTimeout(() => fetchInitialStock(), 300000);
   }  
 
   const addStock = () => {
