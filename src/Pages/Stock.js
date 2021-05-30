@@ -1,33 +1,41 @@
 import React from 'react'
 import Alert from 'react-bootstrap/Alert';
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import '../CSS/Stock.css'
-// import Plot from 'react-plotly.js';
-import AnyChart from '../../node_modules/anychart-react/dist/anychart-react.min'
-import anychart from 'anychart'
+import Plot from 'react-plotly.js';
+// import AnyChart from '../../node_modules/anychart-react/dist/anychart-react.min'
+// import anychart from 'anychart'
 
 
 const Stock = () => {
   const [stockSymbol,setStockSymbol] = useState('');
   const [dataav,setDataav] = useState([]);
-  const [datatd,setDatatd] = useState([]);
+  // const [datatd,setDatatd] = useState([]);
   const [datao,setDatao] = useState([]);
   // const [datap,setDatap] = useState([]);
   const [showF, setShowF] = useState(false) ;
-
   const [positive,setPositive] = useState(true);
   const [fetched,setFetched] = useState(false);
   const [fetchedGraph,setFetchedGraph] = useState(false);
-
-  // const result = dotenv.config()
-
+  const [stockData,setStockData] = useState([{}]);
+  const [graphWidth,setGraphWidth] = useState(0);
+  const [graphHeight,setGraphHeight] = useState(0);
+  const [stockLayout,setStockLayout] = useState({});
+  
   //API KEY
   //Alpha Vantage
   const [API_KEY_1,setAPI_KEY_1] = useState('3RFOOF2S72MF6TGZ');
   //Twelve Data
-  const [API_KEY_2,setAPI_KEY_2] = useState('d50e44b3951e474e96b7aaacf310b9ce');
+  const [API_KEY_2,setAPI_KEY_2] = useState('d50e44b3951e474e96b7aaacf310b9ce');  
 
-
+  const ref = useRef(null);
+  useEffect(() => {
+    if(ref.current){
+      // setStockLayout({ ...stockLayout, width: ref.current.offsetWdith })
+      setGraphWidth((ref.current.offsetWidth)*0.95);
+      setGraphHeight((ref.current.offsetHeight)*0.95);
+    }
+  }, [ref.current]);
 
   const fetchInitialStock = async () => {
     //Overview (Twelve Data)
@@ -40,7 +48,6 @@ const Stock = () => {
       setTimeout(() => setShowF(false), 1000);
       return;
     }
-    // console.log(data_1)
 
     //Market Cap (Alpha Vantage)
     var urlav = `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${stockSymbol}&apikey=${API_KEY_1}`;
@@ -67,7 +74,6 @@ const Stock = () => {
 
   const fetchStock =  async () => {
     var urltd = `https://api.twelvedata.com/time_series?symbol=${stockSymbol}&interval=5min&outputsize=78&apikey=${API_KEY_2}`
-
     // var urlp = `https://api.twelvedata.com/price?symbol=${StockSymbol}&apikey=${API_KEY_2}`
 
     const restd = await fetch(urltd)
@@ -85,22 +91,63 @@ const Stock = () => {
       return;
     }
     var temp = data.values.length
-    // console.log(temp)
 
-    var dataArr = []
-
+    var tempDateArr = [];
+    var tempOpenArr = [];
+    var tempHighArr = [];
+    var tempLowArr = [];
+    var tempCloseArr = [];
     for (var i = 0; i < temp; i++){
-      var tempArr = [];
-      tempArr.push(data.values[i].datetime)
-      tempArr.push(parseFloat(data.values[i].open))
-      tempArr.push(parseFloat(data.values[i].high))
-      tempArr.push(parseFloat(data.values[i].low))
-      tempArr.push(parseFloat(data.values[i].close))
-      dataArr.push(tempArr)
+      tempDateArr.push(data.values[i].datetime)
+      tempOpenArr.push(parseFloat(data.values[i].open))
+      tempHighArr.push(parseFloat(data.values[i].high))
+      tempLowArr.push(parseFloat(data.values[i].low))
+      tempCloseArr.push(parseFloat(data.values[i].close))
     }
-    setDatatd(dataArr);    
-    setFetchedGraph(true);  
 
+    setStockLayout({
+      dragmode: 'zoom', 
+      margin: {
+        r: 10, 
+        t: 25, 
+        b: 40, 
+        l: 60
+      }, 
+      showlegend: false, 
+      xaxis: {
+        autorange: true, 
+        domain: [0, 1], 
+        // range: ['2017-01-03 12:00', '2017-02-15 12:00'], 
+        // rangeslider: {range: ['2017-01-03 12:00', '2017-02-15 12:00']}, 
+        title: 'Date', 
+        type: 'date'
+      }, 
+      yaxis: {
+        autorange: true, 
+        domain: [0, 1], 
+        // range: [114.609999778, 137.410004222], 
+        type: 'linear'
+      },
+      width: graphWidth ,
+      height: graphHeight ,
+    });
+
+    setStockData ([{
+      x: tempDateArr, 
+      close: tempCloseArr, 
+      decreasing: {line: {color: '#f54748'}},
+      high: tempHighArr,
+      increasing: {line: {color: '#29bb89'}},  
+      line: {color: 'rgba(31,119,180,1)'}, 
+      low: tempLowArr,
+      open: tempOpenArr,
+      type: 'candlestick', 
+      xaxis: 'x', 
+      yaxis: 'y'
+    }]);
+
+    // console.log(stockData);
+    setFetchedGraph(true);  
     // setTimeout(fetchStock, 100);
   }  
 
@@ -108,32 +155,6 @@ const Stock = () => {
     // console.log(stockSymbol);
     fetchInitialStock();
   }
-
-  if(datatd !== []){
-    var table, mapping, chart;
-    table = anychart.data.table();
-    table.addData(datatd);
-  
-    // mapping the data
-    mapping = table.mapAs();
-    mapping.addField('open', 1, 'first');
-    mapping.addField('high', 2, 'max');
-    mapping.addField('low', 3, 'min');
-    mapping.addField('close', 4, 'last');
-  
-    // defining the chart type
-    chart = anychart.stock();
-      
-    // set the series type
-    chart.plot(0).candlestick(mapping).name(datao.name);
-      
-    // setting the chart title
-    chart.title('Stock Chart (5min)');
-  }
-  else{
-    fetchStock();
-  }
-
 
 
 
@@ -171,16 +192,15 @@ const Stock = () => {
               {datao.percent_change}
             </div>
           </div>
-          <div className = {`graph  ${fetchedGraph? "" : "graphh"}`}>
+          <div ref={ref} className = {`graph  ${fetchedGraph? "" : "graphh"}`}>
             {
               fetchedGraph ? 
-              <AnyChart
-              height={600}
-              instance={chart}
+                <Plot
+                data={stockData}
+                layout={stockLayout}
               />
               : ""
             }
-
           </div>
           <div className = "row details">
 

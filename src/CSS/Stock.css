@@ -85,6 +85,8 @@ html {
   /* background-color: #0048ff2f; */
   background-color: white;
   border-radius: .3rem;
+  /* display: flex;
+  align-items: center; */
 }
 .graphh{
   height: 36rem;
