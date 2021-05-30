@@ -2,10 +2,7 @@ import React from 'react'
 import Alert from 'react-bootstrap/Alert';
 import { useState, useEffect, useRef } from 'react'
 import '../CSS/Stock.css'
-import Plot from 'react-plotly.js';
-// import AnyChart from '../../node_modules/anychart-react/dist/anychart-react.min'
-// import anychart from 'anychart'
-
+// import Plot from 'react-plotly.js';
 
 const Stock = () => {
   const [stockSymbol,setStockSymbol] = useState('');
@@ -105,46 +102,46 @@ const Stock = () => {
       tempCloseArr.push(parseFloat(data.values[i].close))
     }
 
-    setStockLayout({
-      dragmode: 'zoom', 
-      margin: {
-        r: 10, 
-        t: 25, 
-        b: 40, 
-        l: 60
-      }, 
-      showlegend: false, 
-      xaxis: {
-        autorange: true, 
-        domain: [0, 1], 
-        // range: ['2017-01-03 12:00', '2017-02-15 12:00'], 
-        // rangeslider: {range: ['2017-01-03 12:00', '2017-02-15 12:00']}, 
-        title: 'Date', 
-        type: 'date'
-      }, 
-      yaxis: {
-        autorange: true, 
-        domain: [0, 1], 
-        // range: [114.609999778, 137.410004222], 
-        type: 'linear'
-      },
-      width: graphWidth ,
-      height: graphHeight ,
-    });
+    // setStockLayout({
+    //   dragmode: 'zoom', 
+    //   margin: {
+    //     r: 10, 
+    //     t: 25, 
+    //     b: 40, 
+    //     l: 60
+    //   }, 
+    //   showlegend: false, 
+    //   xaxis: {
+    //     autorange: true, 
+    //     domain: [0, 1], 
+    //     // range: ['2017-01-03 12:00', '2017-02-15 12:00'], 
+    //     // rangeslider: {range: ['2017-01-03 12:00', '2017-02-15 12:00']}, 
+    //     title: 'Date', 
+    //     type: 'date'
+    //   }, 
+    //   yaxis: {
+    //     autorange: true, 
+    //     domain: [0, 1], 
+    //     // range: [114.609999778, 137.410004222], 
+    //     type: 'linear'
+    //   },
+    //   width: graphWidth ,
+    //   height: graphHeight ,
+    // });
 
-    setStockData ([{
-      x: tempDateArr, 
-      close: tempCloseArr, 
-      decreasing: {line: {color: '#f54748'}},
-      high: tempHighArr,
-      increasing: {line: {color: '#29bb89'}},  
-      line: {color: 'rgba(31,119,180,1)'}, 
-      low: tempLowArr,
-      open: tempOpenArr,
-      type: 'candlestick', 
-      xaxis: 'x', 
-      yaxis: 'y'
-    }]);
+    // setStockData ([{
+    //   x: tempDateArr, 
+    //   close: tempCloseArr, 
+    //   decreasing: {line: {color: '#f54748'}},
+    //   high: tempHighArr,
+    //   increasing: {line: {color: '#29bb89'}},  
+    //   line: {color: 'rgba(31,119,180,1)'}, 
+    //   low: tempLowArr,
+    //   open: tempOpenArr,
+    //   type: 'candlestick', 
+    //   xaxis: 'x', 
+    //   yaxis: 'y'
+    // }]);
 
     // console.log(stockData);
     setFetchedGraph(true);  
@@ -194,12 +191,12 @@ const Stock = () => {
           </div>
           <div ref={ref} className = {`graph  ${fetchedGraph? "" : "graphh"}`}>
             {
-              fetchedGraph ? 
-                <Plot
-                data={stockData}
-                layout={stockLayout}
-              />
-              : ""
+              // fetchedGraph ? 
+              //   <Plot
+              //   data={stockData}
+              //   layout={stockLayout}
+              //   />
+              // : ""
             }
           </div>
           <div className = "row details">
