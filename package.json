@@ -16,6 +16,8 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
+  "engines" : { "node" : ">=0.12" },
+  "engineStrict" : true ,
   "scripts": {
     "start": "react-scripts --max_old_space_size=512 start",
     "build": "react-scripts --max_old_space_size=512 build",
