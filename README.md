@@ -36,9 +36,10 @@
 ### Deploying
 1. Tried [Heroku](https://www.heroku.com), which is a free deploying platform.
 2. Faced `Error => (Javascript Heap Out of Memory)`
-3. Choosing [Digital Ocean](https://www.digitalocean.com/) as server memory is more customisable and cheaper.
-4. Build app.
-5. Deploy.
+4. Tried to deploy on [GitHub](https://vincent1218.github.io/finantier-test-fe/) but the page is not showing anything.
+5. Choosing [Digital Ocean](https://www.digitalocean.com/) as server memory is more customisable and cheaper.
+6. Build app.
+7. Deploy.
 
 
 ## Challenging part:
