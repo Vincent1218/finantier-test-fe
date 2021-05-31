@@ -182,7 +182,6 @@ const Stock = () => {
               {datao.close}
             </div>
             <div className = {`change  ${positive ? "pos" : "neg"}`}>
-            
               {datao.change}
             </div>
             <div className = {`percent_change  ${positive ? "pos" : "neg"}`}>
