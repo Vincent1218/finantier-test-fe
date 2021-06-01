@@ -28,7 +28,7 @@
 2. Choose both [TwelveData](https://twelvedata.com/) and [Alpha Vantage](https://www.alphavantage.co/) as [Alpha Vantage](https://www.alphavantage.co/) do not provide `real-time data` and [TwelveData](https://twelvedata.com/) do not provide `MarketCap`.
 3. Reconstruct data to suit the format of the graphing tool parameters.
 4. Displaying required data.
-5. Set timer to fetch data every `5 minutes` due to limited total amount of requests per day.
+5. Set timer to fetch data every `60 seconds` due to limited total amount of requests. `(800 per day, 8 per minute)`([Alpha Vantage](https://www.alphavantage.co/))
 6. *Changed the required `bid` & `ask` to `high` & `low` as API chosen is not from a broker.
 7. *Added `Sector` to make the data displayed neater.
 8. Tried two graphing tools, [Plotly](https://plotly.com/) & [AnyChart](https://www.anychart.com/) and decided to use [Plotly](https://plotly.com/) as it is more customisable. 

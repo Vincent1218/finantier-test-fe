@@ -57,6 +57,7 @@ const Stock = () => {
       setTimeout(() => setShowF(false), 1000);
       return;
     }
+    console.log(data_1)
 
     //Set data
     if(data_1.percent_change<0){
@@ -74,7 +75,6 @@ const Stock = () => {
   const fetchStock =  async () => {
     var urltd = `https://api.twelvedata.com/time_series?symbol=${stockSymbol}&interval=5min&outputsize=78&apikey=${API_KEY_2}`
     // var urlp = `https://api.twelvedata.com/price?symbol=${StockSymbol}&apikey=${API_KEY_2}`
-
     const restd = await fetch(urltd)
     // const resp = await fetch(urlp)
 
@@ -145,7 +145,7 @@ const Stock = () => {
     // console.log(stockData);
     setFetchedGraph(true);  
     // setTimeout(fetchStock, 100);
-    setTimeout(() => fetchInitialStock(), 300000);
+    setTimeout(() => fetchInitialStock(), 600000);
   }  
 
   const addStock = () => {
