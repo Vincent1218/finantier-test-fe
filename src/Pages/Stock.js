@@ -13,6 +13,7 @@ const Stock = () => {
   const [datao,setDatao] = useState([]);
   // const [datap,setDatap] = useState([]);
   const [showF, setShowF] = useState(false) ;
+  const [showE, setShowE] = useState(false) ;
   const [positive,setPositive] = useState(true);
   const [fetched,setFetched] = useState(false);
   const [fetchedGraph,setFetchedGraph] = useState(false);
@@ -47,6 +48,12 @@ const Stock = () => {
       setTimeout(() => setShowF(false), 1000);
       return;
     }
+    if((data_1.code)===429){
+      // console.log("Symbol does not exist")
+      setShowE(true)
+      setTimeout(() => setShowE(false), 1000);
+      return;
+    }
 
     //Market Cap (Alpha Vantage)
     var urlav = `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${stockSymbol}&apikey=${API_KEY_1}`;
@@ -55,6 +62,11 @@ const Stock = () => {
     if(data_2==={}){
       setShowF(true)
       setTimeout(() => setShowF(false), 1000);
+      return;
+    }
+    if(data_2.note){
+      setShowE(true)
+      setTimeout(() => setShowE(false), 1000);
       return;
     }
     // console.log(data_1)
@@ -84,10 +96,14 @@ const Stock = () => {
     // setDatatd (data)
     // setDatap (data)
     // console.log(data.values)
-
     if((data.code)===400){
       setShowF(true)
       setTimeout(() => setShowF(false), 1000);
+      return;
+    }
+    if((data.code)===429){
+      setShowE(true)
+      setTimeout(() => setShowE(false), 1000);
       return;
     }
     var temp = data.values.length
@@ -167,6 +183,9 @@ const Stock = () => {
     <div className = "stockpage">
       <Alert show={showF} className= "alertdne" variant="danger" onClose={() => setShowF(false)} dismissible>
         <Alert.Heading className = "alertHeading"> Symbol does not exist! </Alert.Heading>
+      </Alert>
+      <Alert show={showE} className= "alertdne" variant="danger" onClose={() => setShowF(false)} dismissible>
+        <Alert.Heading className = "alertHeading"> API calls limit reached! </Alert.Heading>
       </Alert>
       <div className = "container">
           <div className="input-group mb-3">
