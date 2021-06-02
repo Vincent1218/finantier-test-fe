@@ -57,7 +57,7 @@ const Stock = () => {
       setTimeout(() => setShowF(false), 1000);
       return;
     }
-    console.log(data_1)
+    // console.log(data_1)
 
     //Set data
     if(data_1.percent_change<0){
@@ -83,6 +83,7 @@ const Stock = () => {
     
     // setDatatd (data)
     // setDatap (data)
+    console.log(data.values)
 
     if((data.code)===400){
       setShowF(true)
@@ -104,6 +105,7 @@ const Stock = () => {
       tempCloseArr.push(parseFloat(data.values[i].close))
     }
 
+
     setStockLayout({
       dragmode: 'zoom', 
       margin: {
@@ -117,7 +119,12 @@ const Stock = () => {
         autorange: true, 
         domain: [0, 1], 
         title: 'Date', 
-        type: 'date'
+        type: 'date',
+        rangebreaks: {
+          enabled: true,
+          bounds : ["sat","mon"],
+          // values : ["2021-05-28", "2021-05-30"]
+        }
       }, 
       yaxis: {
         autorange: true, 
