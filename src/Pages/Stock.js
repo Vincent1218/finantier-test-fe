@@ -83,7 +83,7 @@ const Stock = () => {
     
     // setDatatd (data)
     // setDatap (data)
-    console.log(data.values)
+    // console.log(data.values)
 
     if((data.code)===400){
       setShowF(true)
