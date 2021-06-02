@@ -49,6 +49,13 @@
 
 <br />
 
+## User Guide:
+1. Enter company code in the search bar above, click `Search`,the relevant information will be displayed,
+2. Regarding the graph, hover above the candle stick to look at the details.
+3. Drag to adjust specific range for viewing.
+4. Double click to reset axes.
+5. Some famous company code: `FB`,`APPL`,`TSLA`,`MSFT`,`AMD`
+
 ## Link to website: [Click Me!](http://178.128.57.31/)
 	
 
