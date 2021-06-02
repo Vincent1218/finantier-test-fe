@@ -120,6 +120,14 @@ const Stock = () => {
       tempLowArr.push(parseFloat(data.values[i].low))
       tempCloseArr.push(parseFloat(data.values[i].close))
     }
+    tempDateArr.push("2021-06-02 9:30:00");
+    tempOpenArr.push(parseFloat(100));
+    tempHighArr.push(parseFloat(90));
+    tempLowArr.push(parseFloat(90));
+    tempCloseArr.push(parseFloat(95))
+
+    // console.log(data.values)
+
 
 
     setStockLayout({
@@ -135,12 +143,14 @@ const Stock = () => {
         autorange: true, 
         domain: [0, 1], 
         title: 'Date', 
-        type: 'date',
-        rangebreaks: {
+        type: "date",
+        rangebreaks: [{
           enabled: true,
-          bounds : ["sat","mon"],
-          // values : ["2021-05-28", "2021-05-30"]
-        }
+          // bounds : ["sat","mon"],
+          // values : ["2021-05-28"]
+          pattern: 'hour', 
+          bounds: [16,9.5] 
+        }]
       }, 
       yaxis: {
         autorange: true, 
