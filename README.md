@@ -1,4 +1,4 @@
-# Finantier Frontend Software Engineer - Coding Challenge 
+# Finantier Frontend Software Engineer - Coding Challenge Project
 
 ## By: Chai Wen Xuan
 
