@@ -35,7 +35,7 @@ const Stock = () => {
       setGraphWidth((ref.current.offsetWidth)*0.95);
       setGraphHeight((ref.current.offsetHeight)*0.95);
     }
-  }, [ref.current]);
+  }, []);
 
   const fetchInitialStock = async () => {
     //Overview (Twelve Data)
