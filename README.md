@@ -1,4 +1,4 @@
-# Finantier Frontend Software Engineer - Coding Challenge 
+# Finantier Frontend Software Engineer - Coding Challenge Project
 
 ## By: Chai Wen Xuan
 
@@ -56,6 +56,6 @@
 4. Double click to reset axes.
 5. Some famous company code: `FB`,`APPL`,`TSLA`,`MSFT`,`AMD`
 
-## Link to website: [Click Me!](http://178.128.57.31/)
+## Link to website: [Click Me!](http://128.199.107.84/)
 	
 
