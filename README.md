@@ -56,6 +56,6 @@
 4. Double click to reset axes.
 5. Some famous company code: `FB`,`APPL`,`TSLA`,`MSFT`,`AMD`
 
-## Link to website: [Click Me!](http://128.199.107.84/)
+## Link to website: [Click Me!](https://stock-app-bfkctb3gq-vincent1218.vercel.app/)
 	
 
